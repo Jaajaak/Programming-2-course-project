@@ -1,0 +1,69 @@
+﻿
+=----------------------------------------
+= Ohjelmointi 2, 2019, vaihe 7
+=----------------------------------------
+= Katso <a href=".." target="_top">työ vaiheittain</a>
+=
+@https://trac.cc.jyu.fi/projects/ohj2ht/browser/k2019/vikstjav = Työ versionhallinnassa
+=
+= <h3>Ohjelman avustus</h3>
+!https://tim.jyu.fi/view/kurssit/tie/ohj2/2019k/ht/vikstjav = Suunnitelma TIMissä
+=
+kuvat/paaikkunak.png = ohjelman pääikkunan
+kuvat/avaak.png = kuva ohjelman alusta
+kuvat/eiaukeak.png = virheilmoitus jos tiedostoa ei ole
+kuvat/virhe.png = pääikkuna virhesyötön tapauksessa
+kuvat/muokkaus.png = Biisin tietojen muokkaus
+kuvat/poisto.png = poiston varmistus
+kuvat/tulostus.png = tulostuksen esikatselu
+kuvat/tietoja.png = tietoja ohjelmasta
+=
+= <h3>Ajettava ohjelma</h3>
+musakirjasto.jar = ajettava ohjelma, lataa ja aja
+=
+= <h3>Ohjelman esisuunnitelma</h3>
+@https://tim.jyu.fi/view/kurssit/tie/ohj2/2019k/ht/vikstjav = Suunnitelma TIMissä
+=
+kuvat/avaak1.png = kuva ohjelman alusta (käsin piirretty)
+kuvat/eiaukeak1.png = virheilmoitus jos tiedostoa ei ole (kp)
+kuvat/paaikkunak1.png = ohjelman pääikkunan (kp)
+=
+= <h3>Tietorakenteiden käsittely koodissa</h3>
+src/kirjasto/SailoException.java = Poikkeusluokka tietorakenteesta tuleville virheille
+src/kirjasto/Artisti.java = artistijoka osaa huolehtia omista tiedoistaan
+src/kirjasto/Artistit.java = artistin käsittely
+src/kirjasto/Biisi.java = biisi joka osaa huolehtia omista tiedoistaan 
+src/kirjasto/Biisit.java = biisien käsittely 
+src/kirjasto/Kirjasto.java = kerho joka välittää pyynnöt Artistit-luokalle	
+=
+== <h3>Käyttöliittymän ulkoasu JavaFX:llä</h3>
+src/kanta/Tietue.java = rajapinta tietueelle
+=
+= <h3>Käyttöliittymän ulkoasu JavaFX:llä</h3>
+src/fxMusakirjasto/MusaMain.java = ohjellman käynnistävä pääluokka
+src/fxMusakirjasto/MusakirjastoGUIView.fxml =kerhon varsinainen käyttöliittymä
+src/fxMusakirjasto/MusakirjastoGUIController.java = ohjain joka käsittelee käyttöliittymästä tulevat tapahtumat
+src/fxMusakirjasto/Musa.css = tyylitiedosto
+
+src/fxMusakirjasto/ArtistiDialogController.java
+src/fxMusakirjasto/BiisiDialogController.java
+
+src/fxMusakirjasto/TietueDialogController.java = tietueen muokkauksen kontrolleri. Luo kentät
+src/fxMusakirjasto/TietueDialogView.fxml = tietueen muokkausikkuna
+
+src/fxKirjasto/BiisitGUIView.fxml = paneli jossa biisin tiedot
+src/fxKirjasto/BiisintiedotView.fxml = paneli
+src/fxKirjasto/ArtistiDialogView.fxml = dialogi, jossa muutetaan artistin tiedot
+src/fxKirjasto/BiisiDialogView.fxml = dialogi, jossa muutetaan biisin tiedot
+
+
+=
+= <h3>Muita tiedostoja</h3>
+test/AllTests.java = test suite kaikille tiedostoille
+build.xml = Ant-skripti joka tekee .jar:in
+Comtest.ini = asetetaan testt menemään eri hakemistoon
+.project = Eclipsen projekti
+.classpath = Eclipsen luokkapolku
+.settings/org.eclipse.jdt.core.prefs = Eclipsen kääntäjän varoitukset
+hardstyle/artistiid.dat = jäsenten tiedosto   
+hardstyle/bid.dat = harrastustiedosto  

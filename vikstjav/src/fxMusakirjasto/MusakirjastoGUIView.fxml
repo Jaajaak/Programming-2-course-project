@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import fi.jyu.mit.fxgui.ComboBoxChooser?>
+<?import fi.jyu.mit.fxgui.ListChooser?>
+<?import fi.jyu.mit.fxgui.StringGrid?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="586.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxMusakirjasto.MusakirjastoGUIController">
+   <left>
+      <BorderPane prefHeight="0.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+         <top>
+            <Label text="Artistit" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </top>
+         <center>
+            <ListChooser fx:id="chooserArtistit" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+   </left>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Tiedosto">
+            <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleTallenna" text="Tallenna" />
+              <MenuItem mnemonicParsing="false" onAction="#handleLopeta" text="Sulje" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Muokkaa">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#handleUusiArtisti" text="Lisää Artisti" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleMuokkaaArtisti" text="Muokkaa tietoja" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleUusiBiisi" text="Lisää Biisi" />
+                  <MenuItem mnemonicParsing="false" onAction="#handlePoistaArtisti" text="Poista Artisti" />
+                  <MenuItem mnemonicParsing="false" onAction="#handlePoistaBiisi" text="Poista Biisi" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleMusiikkia" text="Musiikkia" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Asetukset">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#handleVersio" text="Versio" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <BorderPane prefHeight="300.0" prefWidth="250.0" BorderPane.alignment="CENTER">
+         <bottom>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <bottom>
+                  <VBox prefHeight="100.0" prefWidth="350.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label fx:id="labelVirhe" prefWidth="250.0" />
+                     </children>
+                  </VBox>
+               </bottom>
+               <center>
+                  <TextField fx:id="hakuehto" onKeyReleased="#handleHakuehto" prefHeight="50.0" prefWidth="300.0" BorderPane.alignment="CENTER" />
+               </center>
+               <right>
+                  <ComboBoxChooser fx:id="cbKentat" prefHeight="50.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+               </right>
+            </BorderPane>
+         </bottom>
+         <center>
+            <ScrollPane fx:id="panelArtisti" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <content>
+                  <GridPane fx:id="gridArtisti">
+                    <columnConstraints>
+                      <ColumnConstraints fillWidth="false" halignment="RIGHT" hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Nimi">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label text="Biisienmäärä" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label text="Kotimaa" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label text="Aloitusvuosi" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField editable="false" GridPane.columnIndex="1" />
+                        <TextField editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                     </children>
+                  </GridPane>
+               </content>
+            </ScrollPane>
+         </center>
+         <top>
+            <Label text="Artistin tiedot" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </top>
+      </BorderPane>
+   </center>
+   <right>
+      <BorderPane prefHeight="200.0" prefWidth="250.0" BorderPane.alignment="CENTER">
+         <top>
+            <Label text="Biisit" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </top>
+         <center>
+            <StringGrid fx:id="tableBiisit" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+   </right>
+</BorderPane>
